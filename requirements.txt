@@ -1,0 +1,13 @@
+youtube_transcript_api
+openai
+python-dotenv
+pathlib
+langchain
+pydb
+google-generativeai
+markdown-pdf
+pypdf
+langchain-google-genai
+python-docx
+pypdf2
+langchain_openai
