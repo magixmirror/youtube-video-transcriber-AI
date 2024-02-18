@@ -32,6 +32,7 @@ def extract_transcript(youtube_url:str, model,api_key)->str:
             return notes, image_url
     except Exception as e:
         st.warning("Ooops :( ,No transcription is available for your video !")
+        st.error(e)
         st.stop()
 #  , ""
     
