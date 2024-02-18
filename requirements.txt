@@ -3,7 +3,7 @@ openai
 python-dotenv
 pathlib
 langchain
-pydb
+pytube
 google-generativeai
 markdown-pdf
 pypdf
