@@ -1,7 +1,6 @@
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-from docx.oxml import OxmlElement
 
 def add_formatting(run, format_text):
     if '**' in format_text:
@@ -18,6 +17,8 @@ def add_formatting(run, format_text):
 def generate_word_file(markdown_content, file_path):
     document = Document()
 
+    heading = None  # Initialize heading variable
+
     # Add Markdown content to Word document
     for line in markdown_content.split('\n'):
         if line.startswith('# '):  # Heading 1
@@ -31,7 +32,7 @@ def generate_word_file(markdown_content, file_path):
             paragraph = document.add_paragraph()
             run = paragraph.add_run()
             formatted_text = add_formatting(run, line)
-            if line.startswith('#'):
+            if heading is not None and line.startswith('#'):
                 # Add appropriate Markdown heading syntax
                 heading_level = line.count('#')
                 heading.text = formatted_text
@@ -42,4 +43,3 @@ def generate_word_file(markdown_content, file_path):
 
     # Save Word document
     document.save(file_path)
-
