@@ -28,7 +28,7 @@ def extract_transcript(youtube_url:str, model,api_key)->str:
                 text += ' ' + txt['text']
             prompt = get_prompt(youtube_url,transcript=text,api_key=api_key ,model=model)
             notes = ""
-            notes = generate_text(prompt=prompt, model_=model) 
+            notes = generate_text(prompt=prompt, model_=model,api_key=api_key) 
             return notes, image_url
     except Exception as e:
         st.warning("Ooops :( ,No transcription is available for your video !")
