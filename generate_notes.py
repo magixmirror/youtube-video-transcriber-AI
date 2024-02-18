@@ -3,12 +3,8 @@ from langchain_openai import OpenAI
 from langchain_community.llms import HuggingFaceHub
 import streamlit as st
 
-from dotenv import load_dotenv
-import os
-load_dotenv()
-api_key=os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=api_key)
-def generate_text(prompt:str, model_)->str:
+def generate_text(prompt:str, model_, api_key)->str:
+    genai.configure(api_key=api_key)
     try:
         if model_ == "Gemini Pro":
             model = genai.GenerativeModel('gemini-pro')

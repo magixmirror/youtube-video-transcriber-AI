@@ -53,8 +53,8 @@ def main():
             notes=None
             if action=="Make Report":
                 transcript = extract_transcript(video_url, model=model)
-                prompt = get_prompt(video_url,model=model,transcript=transcript, report=True)
-                notes = generate_text(prompt=prompt , model_=model)
+                prompt = get_prompt(video_url,model=model,api_key=api_key,transcript=transcript, report=True)
+                notes = generate_text(prompt=prompt , model_=model, api_key=api_key)
 
             # Check if "Perform Action" button is clicked
             if st.button(f'{action}'):
@@ -68,9 +68,9 @@ def main():
                     pdf = MarkdownPdf(toc_level=2)
                     st.write("Downloading notes...")
                     transcript = extract_transcript(video_url, model=model)
-                    prompt = get_prompt(video_url,model=model ,transcript=transcript)
+                    prompt = get_prompt(video_url,model=model,api_key=api_key ,transcript=transcript)
                     
-                    notes = generate_text(prompt=prompt, model_=model)
+                    notes = generate_text(prompt=prompt, model_=model,api_key=api_key)
 
                     # Display notes in Markdown format
                     st.markdown(notes, unsafe_allow_html=True)

@@ -11,7 +11,7 @@ def get_video_title(url):
     except Exception as e:
         print(f"Error fetching video title: {e}")
         return None
-def get_prompt(url, model,transcript,report=False):
+def get_prompt(url, model,transcript,api_key,report=False):
     video_title = get_video_title(url)
     prompt =f'''
     I will give you the title of a youtube video , your work is to suggest a name for the profession , Give only name in result
@@ -23,7 +23,7 @@ def get_prompt(url, model,transcript,report=False):
     VIDEO_TITLE: {video_title}
     PROFESSION: <GIVE_PROFESSION>
     '''
-    profession = generate_text(prompt, model_=model)
+    profession = generate_text(prompt, model_=model,api_key=api_key)
     if report:
         prompt_final=f'''
         Act as a professional report writer and make a technical report by analyzing the transcript, Your report should contain the table of content , primary headings and seconday headings. Each heading in the table of content should be explained , primary heading "#" will be bold , And most important generate the report in markdown format
