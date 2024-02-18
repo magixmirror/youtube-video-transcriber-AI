@@ -11,3 +11,4 @@ langchain-google-genai
 python-docx
 pypdf2
 langchain_openai
+google-auth
