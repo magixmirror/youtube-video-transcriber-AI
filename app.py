@@ -1,6 +1,6 @@
 import streamlit as st
 from generate_notes import generate_text
-from transcript import extract_transcript
+from transcript import extract_transcript, get_yt_image
 from prepare_prompt import get_prompt
 import os
 import base64
@@ -38,6 +38,12 @@ def main():
     # Show the video URL input only when the API key is entered
     if credentials:
             video_url = st.text_input("Enter the URL of the video:")
+            if video_url:
+                try:
+                    image=get_yt_image(video_url)
+                    st.image(image)
+                except Exception as e:
+                    st.warning(e)
 
     
     # Choose action

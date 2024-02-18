@@ -35,3 +35,8 @@ def extract_transcript(youtube_url:str, model)->str:
         st.stop()
 #  , ""
     
+def get_yt_image(url:str):
+    yt_id=url.split('=')[-1]
+    transcript = YouTubeTranscriptApi.get_transcript(yt_id)
+    image_url=f"http://img.youtube.com/vi/{yt_id}/0.jpg"
+    return image_url
