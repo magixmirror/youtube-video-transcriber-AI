@@ -52,7 +52,7 @@ def main():
             answer = None
             notes=None
             if action=="Make Report":
-                transcript = extract_transcript(video_url, model=model)
+                transcript = extract_transcript(video_url, model=model,api_key=api_key)
                 prompt = get_prompt(video_url,model=model,api_key=api_key,transcript=transcript, report=True)
                 notes = generate_text(prompt=prompt , model_=model, api_key=api_key)
 
@@ -67,7 +67,7 @@ def main():
                 if action == "Download Notes":
                     pdf = MarkdownPdf(toc_level=2)
                     st.write("Downloading notes...")
-                    transcript = extract_transcript(video_url, model=model)
+                    transcript = extract_transcript(video_url, model=model,api_key=api_key)
                     prompt = get_prompt(video_url,model=model,api_key=api_key ,transcript=transcript)
                     
                     notes = generate_text(prompt=prompt, model_=model,api_key=api_key)

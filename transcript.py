@@ -5,7 +5,7 @@ import streamlit as st
 '''
 Extracting the youtube scripts
 '''
-def extract_transcript(youtube_url:str, model)->str:
+def extract_transcript(youtube_url:str, model,api_key)->str:
     '''
     https://pypi.org/project/youtube-transcript-api/
     You can visit this link to check the documentation
@@ -26,7 +26,7 @@ def extract_transcript(youtube_url:str, model)->str:
             text=""
             for txt in transcript:
                 text += ' ' + txt['text']
-            prompt = get_prompt(youtube_url,transcript=text, model=model,)
+            prompt = get_prompt(youtube_url,transcript=text,api_key=api_key ,model=model)
             notes = ""
             notes = generate_text(prompt=prompt, model_=model) 
             return notes, image_url
