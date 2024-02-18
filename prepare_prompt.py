@@ -26,13 +26,13 @@ def get_prompt(url, model,transcript,api_key,report=False):
     profession = generate_text(prompt, model_=model,api_key=api_key)
     if report:
         prompt_final=f'''
-        Act as a professional report writer and make a technical report by analyzing the transcript, Your report should contain the table of content , primary headings and seconday headings. Each heading in the table of content should be explained , primary heading "#" will be bold , And most important generate the report in markdown format
+        Act as a professional report writer make a technical report by analyzing the given transcript, Your report should contain the table of content.Then explain each and every topic in table of content.There should be primary heading and then its explanation .Each heading in the table of content should be explained , primary heading "#" will be bold. Also give conclusion at the end. And most important generate the report in markdown format
         Here is the transcript: " {transcript} ", Generated Report:  
         '''
 
     else:
         prompt_final=f'''
-        Act as a professional {profession}, and analyze this text which is youtube transcript and make detailed notes in markdown format , Your notes should strive to provide a comprehensible grasp of both the theoretical underpinnings and real-world applications of the concepts covered in the transcript.Every heading should be explained and every good concept should be highlighted, underlined and bold , Note there should be pure markdown generated that contains No extra symbols.Don't use this symbol in that markdown "o".Make comprehensive notes.There should be a primary heading then secondary heading and then explain the secondary heading.
+        Act as a professional {profession}, and analyze this text which is youtube transcript and make detailed notes in markdown format , Your notes should strive to provide a comprehensible grasp of both the theoretical underpinnings and real-world applications of the concepts covered in the transcript.Every heading should be explained and every good concept should be highlighted, underlined and bold .Note there should be pure markdown generated that contains No extra symbols.Don't use this symbol in that markdown "o".Make comprehensive notes.There should be a primary heading then secondary heading and then explain the secondary heading.Notes should be detailed
         "Here is the transcript: " {transcript} ", Generated Notes:  
         '''
     return prompt_final
