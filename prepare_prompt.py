@@ -32,7 +32,7 @@ def get_prompt(url, model,transcript,report=False):
 
     else:
         prompt_final=f'''
-        Act as a professional {profession}, and analyze this text which is youtube transcript and make notes in markdown format , Your notes should strive to provide a comprehensible grasp of both the theoretical underpinnings and real-world applications of the concepts covered in the transcript.Every heading should be explained and every good concept should be highlighted, underlined and bold , Note there should be pure markdown generated that contains No extra symbols.Don't use this symbol in that markdown "o".Make comprehensive notes.There should be a primary heading then secondary heading and then content.
+        Act as a professional {profession}, and analyze this text which is youtube transcript and make detailed notes in markdown format , Your notes should strive to provide a comprehensible grasp of both the theoretical underpinnings and real-world applications of the concepts covered in the transcript.Every heading should be explained and every good concept should be highlighted, underlined and bold , Note there should be pure markdown generated that contains No extra symbols.Don't use this symbol in that markdown "o".Make comprehensive notes.There should be a primary heading then secondary heading and then content explained.
         "Here is the transcript: " {transcript} ", Generated Notes:  
         '''
     return prompt_final
