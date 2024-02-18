@@ -12,6 +12,10 @@ import re
 from utils import generate_word_file
 # Streamlit app
 def main():
+    st.set_page_config(
+    page_title="Youtube Video Notes",
+    page_icon="📹"  # You can use emoji or provide a URL to an image
+    )
     credentials = True
 
     st.title("Youtube Video Notes")
