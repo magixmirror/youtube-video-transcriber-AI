@@ -25,9 +25,9 @@ def main():
             credentials=False
             st.warning("OpenAI key is incorrect !")
     elif model=="Gemini Pro" and api_key:
-        if not re.match(r'^AI.*$', api_key):
-            st.warning("Gemini Credentials are incorrect !")
-            credentials=False
+        if not (re.match(r'^AI', api_key) or re.match(r'^GOCSPX-', api_key)):
+            st.warning("Credentials are incorrect!")
+            credentials = False
         else:
             credentials =True
             

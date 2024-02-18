@@ -15,7 +15,7 @@ def generate_text(prompt:str, model_)->str:
             text = model.generate_content(prompt)
             return text.text
         elif model_=="OpenAI":
-            llm = OpenAI()
+            llm = OpenAI(model_name="gpt-3.5-turbo-instruct")
             return llm.invoke(prompt)
     except Exception as e:
         st.warning(e)
